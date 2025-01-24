@@ -1,4 +1,3 @@
-
 import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
 
@@ -97,10 +96,12 @@ export default withMermaid(
             text: '关于',
             items: [
               { text: '项目说明', link: '/prompts/readme' },
-              { text: '对话记录', link: '/prompts/logs' }
+              { text: '第1步 准备工作', link: '/prompts/step1-get-ready' },
+              { text: '第2步 项目概述', link: '/prompts/step2-overview' },
+              { text: 'charts demo', link: '/docs/charts/demo' }
             ]
           }
-        ]
+        ],
       },
 
       socialLinks: [

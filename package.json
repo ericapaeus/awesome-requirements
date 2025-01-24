@@ -10,5 +10,9 @@
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
     "export-pdf": "vitepress build && press-export-pdf export"
+  },
+  "dependencies": {
+    "echarts": "^5.6.0",
+    "vue-echarts": "^7.0.3"
   }
 }

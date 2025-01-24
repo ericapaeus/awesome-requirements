@@ -16,43 +16,46 @@
 - 接口需求：描述系统内部和外部的接口需求。
 - 附录：提供相关的补充信息，如报表清单等。
 
-编写规范:
-- 使用标准的文档结构和格式,保持条理清晰。
-- 语言通俗易懂,避免使用过于专业的术语。
-- 需求描述要具体明确,避免模糊或主观的表述。
+生成需求文档
+- 需要依据提示语生成相应的markdown文件，存放于相应目录，如不存在则创建并提示我。
+- 如有新建或修改的文件名、路径等，请在配置文件中更新相应的链接。
+- 诸如项目背景、项目目标、建设内容、系统现状之类的内容，禁止只用一句话带过，必须详细描述。
+- 每个要点都需要用"观点：详细解释"的格式，解释至少包含50字的具体描述，非必要禁止使用简单列举，必须展开详细说明。
+- 对于观点较多的部分内容，可以分段落进行详细描述，但不同部分之间不要出现重复性的描述。
+- 生成的需求文档（markdown文件）存放于`docs`目录下，请找到相应的目录或文件，进行更新或创建。
+- 在必要时，使用mermaid绘制流程图、架构图等，或使用ECharts绘制图表，ECharts的使用参照`docs/charts/demo.md`。
+- 使用标准的文档结构和格式，保持条理清晰。
+- 需求描述要具体明确，避免模糊或主观的表述。
 - 对关键的功能和数据项进行详细的描述。
 - 必要时使用流程图、界面原型等辅助说明。
 - 保持需求描述的一致性和完整性。
 
 技术原则
-- 编写简洁的技术文档，并提供准确的 Markdown 和 Vue.js 示例
-- 遵循 VitePress 和 Vue.js 的最佳实践和约定
+- 遵循 VitePress、markdown 和 Vue.js 的最佳实践和约定
 - 使用模块化文档结构，重点关注内容组织
 - 优先考虑文档的可维护性和可扩展性
 - 使用描述性的、有意义的文件命名和目录组织
-- 遵守 VitePress 的目录结构约定（如 docs/.vitepress/config）
+- 遵守 VitePress 的目录结构约定
+  - 配置：@/.vitepress/config
+  - 组件：@/.vitepress/components
+  - 主题：@/.vitepress/theme
 - 优先使用组件化和模块化的文档开发方式
 
-VitePress 规范
+关键约定
 - 充分利用 VitePress 2.x 特性（如 Markdown 增强、主题定制）
-- 应用 Frontmatter 配置：定义页面元数据
+- 应用 Frontmatter 配置：定义页面元数据，定义页面属性
 - 遵循 Markdown 编写规范和最佳实践
-- 使用 VitePress 内置功能和辅助组件
 - 文件结构：遵循 VitePress 的目录架构和组织
-- 实现文档导航和搜索功能：
+- 使用导航栏和侧边栏实现清晰的文档结构，使用内置的搜索功能优化文档检索，实现文档导航和搜索功能：
   - 使用 VitePress 的导航和侧边栏配置
   - 在必要时创建自定义主题
   - 对文档内容使用合适的标题层级
 - 有效使用 VitePress 的 Markdown 扩展功能
-- 使用内置的搜索功能优化文档检索
 - 使用主题系统来统一文档风格和样式
-
-Vue.js 规范
-- 使用 Vite 实现现代化和快速的开发环境，支持热模块重载
-- 在 .vitepress/components 下组织自定义组件
-- 使用 Vue 组件增强文档交互性
+- 优先使用 VitePress 内置组件增强文档展示，也可以在 .vitepress/components 下组织自定义组件，构建可重用的 Vue 组件和文档模板
 - 使用组合式 API 实现功能扩展
-- 使用 VitePress 内置组件增强文档展示
+- 使用 Vite 进行开发环境优化和构建
+- 使用 Vite 实现现代化和快速的开发环境，支持热模块重载
 
 依赖项
 - VitePress（最新稳定版本）
@@ -62,24 +65,32 @@ Vue.js 规范
 - Mermaid 用于绘制流程图
 - PlantUML 用于绘制架构图
 
-最佳实践
-- 使用 Markdown 编写结构化文档
-- 使用 Frontmatter 管理页面配置和元数据
-- 利用 VitePress 的缓存机制优化性能
-- 使用 VitePress 的构建工具优化部署
-- 应用文档版本控制以保持内容更新
-- 通过合适的目录结构确保文档的可维护性
-- 使用 VitePress 的国际化功能支持多语言
-- 使用主题系统和组件优化文档体验
+项目目录结构
+```
+.
+├── .vitepress/               # VitePress配置目录
+│   ├── components/           # VitePress组件目录
+│   ├── theme/                # VitePress主题目录
+│   ├── config.mts             # VitePress配置文件
+│   ├── vitepress-pdf.config.ts # 生成pdf配置文件
+├── docs/                    # 文档主目录
+│   ├── appendix/           # 附录文档
+│   ├── charts/             # 图表示例
+│   ├── examples/           # 示例文档
+│   ├── overview/           # 项目概述
+│   ├── requirements/       # 业务需求
+│   └── specifications/     # 技术规格
+├── prompts/                # 提示词配置
+├── public/                 # 静态资源目录
+│   ├── diagrams/          # 图表文件
+│   ├── files/             # 文档文件
+│   ├── images/            # 图片资源
+│   └── requirements_docs/ # 生成的pdf文档
+├── .cursorrules           # Cursor规则配置
+├── .gitignore            # Git忽略配置
+├── index.md              # 项目首页
+├── package-lock.json     # 依赖锁定文件
+├── package.json          # 项目配置文件
+└── README.md            # 项目说明文档
+```
 
-关键约定
-1. 遵循 VitePress 的文档架构
-2. 使用导航栏和侧边栏实现清晰的文档结构
-3. 使用 Frontmatter 定义页面属性
-4. 构建可重用的 Vue 组件和文档模板
-5. 使用 Markdown 增强功能实现丰富的文档内容
-6. 使用 VitePress 的主题功能统一文档风格
-7. 通过目录结构确保文档的清晰组织
-8. 实现搜索功能以提高文档可访问性
-9. 使用 VitePress 的内置功能处理文档更新
-10. 使用 Vite 进行开发环境优化和构建

@@ -1,4 +1,4 @@
-# Prompt 优化步骤
+# 第1步 准备工作
 
 ## 1. 修订 `.cursorrules` 文件
 

@@ -68,6 +68,9 @@
   --vp-c-danger-2: var(--vp-c-red-2);
   --vp-c-danger-3: var(--vp-c-red-3);
   --vp-c-danger-soft: var(--vp-c-red-soft);
+
+  --vp-font-family-base: "Times New Roman", -apple-system, "Microsoft YaHei", "SimSun", sans-serif;
+  --vp-font-family-mono: "Times New Roman", ui-monospace, SFMono-Regular, "Microsoft YaHei", "SimSun", monospace;
 }
 
 /**
@@ -174,4 +177,47 @@
   .page {
     padding-left: inherit;
   }
+}
+
+/* 确保代码块使用等宽字体 */
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, "Microsoft YaHei", "SimSun", monospace !important;
+}
+
+/* 确保英文使用 Times New Roman */
+:root {
+  --vp-c-text-1: #213547;
+  --vp-c-text-2: #374151;
+}
+
+/* 暗色模式下的文字颜色 */
+.dark {
+  --vp-c-text-1: #E1E1E1;  /* 浅灰白色 */
+  --vp-c-text-2: #C7C7C7;  /* 较浅的灰色 */
+}
+
+html[lang="en"] {
+  font-family: "Times New Roman", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 保持中文字体 */
+html[lang="zh"] {
+  font-family: "Microsoft YaHei", "SimSun", -apple-system, sans-serif;
+}
+
+/* 混合文本自动应用对应字体 */
+body {
+  font-family: "Times New Roman", "Microsoft YaHei", "SimSun", -apple-system, sans-serif;
+}
+
+/* 暗色模式下的链接颜色 */
+.dark .vp-doc a,
+.dark .vp-doc a > code {
+  color: #58A6FF;  /* GitHub 暗色主题的链接蓝色 */
+}
+
+/* 暗色模式下的代码块文字颜色 */
+.dark .vp-doc code {
+  color: #E1E1E1;
+  background-color: rgba(255, 255, 255, 0.02);
 }
