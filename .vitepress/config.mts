@@ -18,7 +18,8 @@ export default withMermaid(
         { text: '项目概述', link: '/docs/overview/background', activeMatch: '^/docs/overview/' },
         { text: '业务需求', link: '/docs/requirements/user-roles', activeMatch: '^/docs/requirements/' },
         { text: '技术规格', link: '/docs/specifications/interfaces', activeMatch: '^/docs/specifications/' },
-        { text: '附录', link: '/docs/appendix/reports', activeMatch: '^/docs/appendix/' }
+        { text: '附录', link: '/docs/appendix/reports', activeMatch: '^/docs/appendix/' },
+        { text: 'Prompt', link: '/prompts/logs', activeMatch: '^/prompts/' }
       ],
 
       sidebar: {
@@ -77,6 +78,14 @@ export default withMermaid(
             items: [
               { text: '报表清单', link: '/docs/appendix/reports' },
               { text: '项目过程资料', link: '/docs/appendix/process' }
+            ]
+          }
+        ],
+        '/prompts/': [
+          {
+            text: 'Prompt',
+            items: [
+              { text: '对话记录', link: '/prompts/logs' }
             ]
           }
         ]
