@@ -5,13 +5,17 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 
 export default {
-  extends: DefaultTheme,
+  ...DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     })
   },
-  enhanceApp({ app, router, siteData }) {
-    // ...
+  enhanceApp({ }) {
+    if (typeof window !== 'undefined') {
+      import('mermaid').then(m => {
+        m.default.initialize({ startOnLoad: true })
+      })
+    }
   }
-} satisfies Theme
+} as Theme
