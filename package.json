@@ -2,11 +2,13 @@
   "devDependencies": {
     "mermaid": "^11.4.1",
     "vitepress": "^1.6.3",
+    "vitepress-export-pdf": "^1.0.0",
     "vitepress-plugin-mermaid": "^2.0.17"
   },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "export-pdf": "vitepress build && press-export-pdf export"
   }
 }

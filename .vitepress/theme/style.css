@@ -137,3 +137,41 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+/* Code block styles */
+/* 
+.vp-doc div[class*='language-'] {
+} 
+*/
+
+.vp-doc [class*='language-'] pre, 
+.vp-doc [class*='language-'] code {
+  white-space: pre-wrap !important;       /* 允许在任何地方换行 */
+  word-wrap: break-word !important;       /* 允许长单词断行 */
+  overflow-wrap: break-word !important;   /* 现代浏览器的单词断行 */
+}
+
+/* 确保行号列保持不换行 */
+.vp-doc div[class*='language-'] > span.line-numbers-wrapper {
+  white-space: nowrap !important;
+}
+
+/* 调整内联代码样式 */
+.vp-doc code {
+  word-break: break-word !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ------ */
+
+/* 打印样式 */
+@media print {
+  .navbar,
+  .sidebar,
+  .sidebar-mask {
+    display: none;
+  }
+  .page {
+    padding-left: inherit;
+  }
+}
