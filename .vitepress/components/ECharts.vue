@@ -1,5 +1,8 @@
 <template>
-  <div ref="chartContainer" :style="{ width: width, height: height }"></div>
+  <div class="chart-wrapper">
+    <div ref="chartContainer" :style="{ width: width, height: height }"></div>
+    <div v-if="title" class="chart-title" :class="{ 'dark': isDark }">{{ title }}</div>
+  </div>
 </template>
 
 <script setup>
@@ -21,6 +24,10 @@ const props = defineProps({
   height: {
     type: String,
     default: '400px'
+  },
+  title: {
+    type: String,
+    default: ''
   }
 })
 
@@ -152,7 +159,9 @@ const updateChart = () => {
     const theme = isDark.value ? darkTheme : lightTheme
     const newOption = {
       ...theme,
-      ...props.option
+      ...props.option,
+      // Remove title from chart options if we're showing it below
+      title: undefined
     }
     chart.setOption(newOption, true)
   } catch (error) {
@@ -203,4 +212,24 @@ onBeforeUnmount(() => {
     }
   }
 })
-</script> 
+</script>
+
+<style scoped>
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-title {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #333;
+}
+
+.chart-title.dark {
+  color: #ccc;
+}
+</style> 

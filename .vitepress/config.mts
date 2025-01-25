@@ -25,9 +25,9 @@ export default withMermaid(
       // https://vitepress.dev/reference/default-theme-config
       nav: [
         { text: '首页', link: '/' },
-        { text: '项目概述', link: '/docs/overview/background', activeMatch: '^/docs/overview/' },
-        { text: '业务需求', link: '/docs/requirements/main-page', activeMatch: '^/docs/requirements/' },
-        { text: '技术规格', link: '/docs/specifications/interfaces', activeMatch: '^/docs/specifications/' },
+        { text: '项目概述', link: '/docs/overview/background' },
+        { text: '业务需求', link: '/docs/requirements/overview' },
+        { text: '技术规格', link: '/docs/specifications/index' },
         { text: '附录', link: '/docs/appendix/reports', activeMatch: '^/docs/appendix/' },
         { text: '关于', link: '/prompts/readme', activeMatch: '^/prompts/' }
       ],
@@ -39,7 +39,6 @@ export default withMermaid(
             items: [
               { text: '项目背景', link: '/docs/overview/background' },
               { text: '项目目标', link: '/docs/overview/target' },
-              { text: '建设内容', link: '/docs/overview/content' },
               { text: '系统现状', link: '/docs/overview/current-system' }
             ]
           },
@@ -58,7 +57,15 @@ export default withMermaid(
           {
             text: '功能需求',
             items: [
-              { text: '系统首页', link: '/docs/requirements/main-page' }
+              { text: '功能概述', link: '/docs/requirements/overview' },
+              { text: '1. 工作平台', link: '/docs/requirements/1-work-platform' },
+              { text: '2. 物联网数据管理', link: '/docs/requirements/2-iot-management' },
+              { text: '3. 病虫预警分析', link: '/docs/requirements/3-pest-warning' },
+              { text: '4. 国家系统对接', link: '/docs/requirements/4-national-system' },
+              { text: '5. 防治监管', link: '/docs/requirements/5-prevention-supervision' },
+              { text: '6. 业务应用', link: '/docs/requirements/6-business-application' },
+              { text: '7. 病虫害知识库', link: '/docs/requirements/7-knowledge-base' },
+              { text: '8. 指挥调度一张图', link: '/docs/requirements/8-command-map' }
             ]
           },
           {
@@ -98,6 +105,7 @@ export default withMermaid(
               { text: '项目说明', link: '/prompts/readme' },
               { text: '第1步 准备工作', link: '/prompts/step1-get-ready' },
               { text: '第2步 项目概述', link: '/prompts/step2-overview' },
+              { text: '第3步 业务需求', link: '/prompts/step3-requirements' },
               { text: 'charts demo', link: '/docs/charts/demo' }
             ]
           }

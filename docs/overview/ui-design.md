@@ -1,246 +1,160 @@
----
-title: 界面设计
-description: 系统界面设计规范文档
----
+## 界面设计总体理念
 
-# 界面设计规范
+安徽省病虫疫情信息调度指挥平台的界面设计以"专业、智能、生态"为核心，致力于为植保工作者提供直观、高效、富有人文关怀的数字化工作平台。界面设计不仅追求美观和功能性，更注重用户体验、生态文明理念和技术创新，全面支持现代植保工作的信息化转型。
 
-## 1. 设计原则
+### 设计原则
 
-### 1.1 基本原则
-- 简洁性：界面简洁清晰，避免视觉干扰
-- 一致性：保持视觉和交互的一致性
-- 高效性：减少操作步骤，提高效率
-- 可用性：符合用户使用习惯，易于理解
-- 美观性：遵循现代设计美学
+观点：界面设计遵循"用户中心、专业至上、生态优先"的设计理念。
+- 专业性：充分体现植保行业的专业特征和工作逻辑。
+- 智能性：通过交互设计体现系统的智能决策能力。
+- 生态性：界面风格和交互逻辑体现生态文明理念。
+- 包容性：支持多终端、多场景、多用户群体的使用需求。
+- 无障碍：确保界面对不同能力用户的友好性。
 
-### 1.2 交互原则
-- 即时反馈：操作后给予及时反馈
-- 容错设计：预防和处理用户错误
-- 灵活控制：提供撤销和回退机制
-- 状态可见：系统状态清晰可见
-- 用户自由：支持用户自定义设置
+### 视觉风格
 
-## 2. 视觉规范
+观点：界面视觉风格融合科技感、生态美学和人文关怀。
+- 色彩系统：以生态绿、专业蓝为主，体现植保工作的专业性和生态性。
+  - 主色调：生态绿（#2E8B57）和专业蓝（#4A90E2）
+  - 辅助色：柔和的灰色和白色，增强可读性
+  - 强调色：橙色（#FF6B35），用于突出重要信息和预警
+- 字体设计：
+  - 主字体：等宽黑体，保证信息清晰度
+  - 字号：主要内容14-16px，标题18-24px
+  - 行间距：1.5倍，提高阅读舒适度
+- 图标风格：简约线性图标，结合生态元素，易于识别和理解
 
-### 2.1 色彩规范
-```css
-/* 主色调 */
---primary-color: #1890ff;
---primary-hover: #40a9ff;
---primary-active: #096dd9;
+### 暗黑模式设计
 
-/* 功能色 */
---success-color: #52c41a;
---warning-color: #faad14;
---error-color: #f5222d;
---info-color: #1890ff;
+观点：提供多样化的视觉体验，减少夜间使用的视觉疲劳。
+- 色彩调整：
+  - 背景色：深灰色（#121212）
+  - 文字颜色：柔和的浅灰色和白色
+  - 图表配色：保持清晰度和可读性
+- 用户选择：
+  - 支持手动切换
+  - 跟随系统设置
+  - 根据时间自动切换
 
-/* 中性色 */
---text-primary: rgba(0, 0, 0, 0.85);
---text-secondary: rgba(0, 0, 0, 0.65);
---text-disabled: rgba(0, 0, 0, 0.25);
---border-color: #d9d9d9;
---background-color: #f0f2f5;
+### 关键界面设计
+
+#### 1. 数据总览大屏
+
+```mermaid
+graph LR
+    A[病虫害风险地图] --> B[实时监测数据]
+    A --> C[预警信息面板]
+    B --> D[趋势分析图表]
+    C --> E[应急响应入口]
+    E --> F[资源调配面板]
 ```
 
-### 2.2 字体规范
-```css
-/* 字体家族 */
---font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+观点：大屏界面是系统的"指挥中心"，提供全局视角和智能决策支持。
+- 地图可视化：多层次展示区域病虫害风险分布
+  - 热力图：风险程度颜色渐变
+  - 图层切换：环境因子、历史数据、预测风险
+- 实时数据：动态更新监测点数据
+  - 数据卡片：简洁展示关键指标
+  - 趋势图：展示数据变化轨迹
+- 预警面板：
+  - 风险等级颜色编码
+  - 详细预警信息展开
+- 应急响应：
+  - 快速启动应急预案
+  - 资源调配可视化
 
-/* 字号 */
---font-size-small: 12px;
---font-size-base: 14px;
---font-size-medium: 16px;
---font-size-large: 20px;
---font-size-xlarge: 24px;
+#### 2. 监测预警界面
 
-/* 行高 */
---line-height-tight: 1.2;
---line-height-base: 1.5;
---line-height-loose: 1.8;
+```mermaid
+graph LR
+    A[监测点列表] --> B[详细监测数据]
+    A --> C[预警等级]
+    B --> D[环境因子分析]
+    C --> E[防治建议]
+    E --> F[知识库链接]
 ```
 
-### 2.3 间距规范
-```css
-/* 间距 */
---spacing-mini: 4px;
---spacing-small: 8px;
---spacing-base: 16px;
---spacing-large: 24px;
---spacing-xlarge: 32px;
+观点：监测预警界面是系统的智能决策中枢。
+- 监测点管理：
+  - 地图和列表双视图
+  - 多维度筛选和排序
+- 数据钻取：
+  - 单点详情弹窗
+  - 历史数据对比
+- 预警分级：
+  - 颜色和图标直观展示风险等级
+  - 风险趋势预测
+- 智能建议：
+  - 基于大数据的个性化防治指导
+  - 链接专家知识库
 
-/* 圆角 */
---border-radius-small: 2px;
---border-radius-base: 4px;
---border-radius-large: 8px;
+#### 3. 防治指导界面
+
+```mermaid
+graph LR
+    A[作物选择] --> B[病虫害类型]
+    B --> C[防治方案]
+    C --> D[绿色防控技术]
+    C --> E[精准施药建议]
+    D --> F[操作指南]
+    E --> F
+    F --> G[效果追踪]
 ```
 
-## 3. 组件规范
+观点：防治指导界面是技术服务的核心。
+- 个性化推荐：
+  - 根据作物、区域、生长阶段定制方案
+  - AI智能匹配最佳防治技术
+- 技术路线：
+  - 突出绿色防控和生态友好方法
+  - 环境影响评估
+- 操作指南：
+  - 图文并茂的实施步骤
+  - 视频教学资源
+- 效果追踪：
+  - 防治效果记录
+  - 数据反馈和持续优化
 
-### 3.1 按钮规范
-```vue
-<template>
-  <!-- 主要按钮 -->
-  <button class="btn btn-primary">
-    主要按钮
-  </button>
+#### 4. 移动端界面
 
-  <!-- 次要按钮 -->
-  <button class="btn btn-secondary">
-    次要按钮
-  </button>
+观点：移动端界面为一线工作者提供便捷的现场服务。
+- 轻量化设计：
+  - 简化功能，突出关键操作
+  - 大按钮、清晰图标
+- 离线支持：
+  - 缓存关键数据和功能
+  - 自动同步机制
+- 快速数据录入：
+  - 拍照识别病虫害
+  - 语音输入
+  - 表单智能填充
+- 实时同步：
+  - 现场数据即时上传
+  - 低网络环境优化
 
-  <!-- 文本按钮 -->
-  <button class="btn btn-text">
-    文本按钮
-  </button>
-</template>
+### 无障碍与包容性设计
 
-<style>
-.btn {
-  padding: var(--spacing-small) var(--spacing-base);
-  border-radius: var(--border-radius-base);
-  font-size: var(--font-size-base);
-  cursor: pointer;
-}
+观点：界面设计应照顾不同用户群体的使用需求。
+- 色彩无障碍：
+  - 色盲友好配色
+  - 高对比度模式
+- 字体与缩放：
+  - 支持用户自定义字体大小
+  - 文字缩放不影响布局
+- 屏幕阅读器：
+  - 完善的 ARIA 标签
+  - 语音朗读支持
+- 交互设计：
+  - 键盘导航
+  - 手势识别
+  - 语音控制
 
-.btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-}
+### 交互设计特色
 
-.btn-secondary {
-  background-color: white;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-}
+观点：交互设计注重专业性、智能性和用户体验的平衡。
+- 上下文关联：模块间数据无缝衔接
+- 智能引导：个性化操作建议
+- 快捷操作：常用功能快速入口
+- 即时反馈：清晰的操作结果提示
 
-.btn-text {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: none;
-}
-</style>
-```
-
-### 3.2 表单规范
-```vue
-<template>
-  <form class="form">
-    <!-- 输入框 -->
-    <div class="form-item">
-      <label class="form-label">用户名</label>
-      <input class="form-input" type="text" />
-    </div>
-
-    <!-- 下拉选择 -->
-    <div class="form-item">
-      <label class="form-label">角色</label>
-      <select class="form-select">
-        <option>管理员</option>
-        <option>普通用户</option>
-      </select>
-    </div>
-  </form>
-</template>
-
-<style>
-.form {
-  width: 100%;
-}
-
-.form-item {
-  margin-bottom: var(--spacing-base);
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--spacing-small);
-  color: var(--text-primary);
-}
-
-.form-input,
-.form-select {
-  width: 100%;
-  padding: var(--spacing-small);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-base);
-}
-</style>
-```
-
-## 4. 布局规范
-
-### 4.1 栅格系统
-```vue
-<template>
-  <div class="row">
-    <div class="col col-4">
-      <!-- 内容 -->
-    </div>
-    <div class="col col-8">
-      <!-- 内容 -->
-    </div>
-  </div>
-</template>
-
-<style>
-.row {
-  display: flex;
-  margin: 0 -8px;
-}
-
-.col {
-  padding: 0 8px;
-}
-
-.col-4 {
-  width: 33.33%;
-}
-
-.col-8 {
-  width: 66.67%;
-}
-</style>
-```
-
-### 4.2 响应式设计
-```css
-/* 响应式断点 */
---breakpoint-xs: 480px;
---breakpoint-sm: 576px;
---breakpoint-md: 768px;
---breakpoint-lg: 992px;
---breakpoint-xl: 1200px;
-
-/* 媒体查询 */
-@media (max-width: 768px) {
-  .col-4, .col-8 {
-    width: 100%;
-  }
-}
-```
-
-## 5. 图标规范
-
-### 5.1 图标库
-使用 Element Plus 图标库或 Ant Design 图标库
-
-### 5.2 图标使用
-```vue
-<template>
-  <i class="icon icon-home"></i>
-  <i class="icon icon-user"></i>
-  <i class="icon icon-settings"></i>
-</template>
-
-<style>
-.icon {
-  font-size: var(--font-size-base);
-  color: var(--text-secondary);
-}
-</style>
-``` 
+通过精心设计的界面，安徽省病虫疫情信息调度指挥平台将为植保工作者提供一个既专业又友好的数字化工作平台，推动农业植保事业的现代化、智能化和生态化转型。
