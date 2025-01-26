@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测防数据采集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 提示信息 -->
+    <div class="bg-yellow-100 p-4 text-yellow-700 text-center">
+        tips:该页面仅用于内容展示，美化设计将在内容确认后进行
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- 页面标题 -->
+        <h1 class="text-2xl font-bold mb-8">测防数据采集</h1>
+
+        <!-- 功能导航 -->
+        <div class="grid grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-xl font-semibold mb-4">病虫情发生上报</h2>
+                <p class="text-gray-600 mb-4">发生农作物重大病虫害疫情时，及时上报相关信息和图片、音视频等附件</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">进入上报</button>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-xl font-semibold mb-4">监测数据采集</h2>
+                <p class="text-gray-600 mb-4">采集重大病虫害发生情况各项业务指标数据，包括发生时间、地点、面积等</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">开始采集</button>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-xl font-semibold mb-4">防控数据采集</h2>
+                <p class="text-gray-600 mb-4">采集防控面积、已防控比例、用药记录、抽检数据、防控后监测数据等</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">开始采集</button>
+            </div>
+        </div>
+
+        <!-- 数据列表 -->
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-6 border-b">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold">最近采集记录</h2>
+                    <div class="flex space-x-4">
+                        <select class="border rounded px-3 py-1">
+                            <option>全部类型</option>
+                            <option>病虫情上报</option>
+                            <option>监测数据</option>
+                            <option>防控数据</option>
+                        </select>
+                        <input type="date" class="border rounded px-3 py-1">
+                        <button class="bg-gray-500 text-white px-4 py-1 rounded">筛选</button>
+                    </div>
+                </div>
+            </div>
+            <table class="min-w-full">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">采集类型</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">采集内容</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">采集地点</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">采集时间</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <!-- 示例数据 -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                病虫情上报
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-900">小麦赤霉病发生情况</div>
+                            <div class="text-sm text-gray-500">发生面积：约500亩</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            安徽省合肥市长丰县
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            2024-01-25 14:30
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                已上报
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <button class="text-blue-600 hover:text-blue-900">查看</button>
+                            <button class="text-green-600 hover:text-green-900 ml-2">编辑</button>
+                            <button class="text-red-600 hover:text-red-900 ml-2">删除</button>
+                        </td>
+                    </tr>
+                    <!-- 更多示例数据行... -->
+                </tbody>
+            </table>
+
+            <!-- 分页 -->
+            <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200">
+                <div class="flex-1 flex justify-between">
+                    <div>
+                        <p class="text-sm text-gray-700">
+                            显示第 <span class="font-medium">1</span> 到 <span class="font-medium">10</span> 条，
+                            共 <span class="font-medium">50</span> 条记录
+                        </p>
+                    </div>
+                    <div>
+                        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+                            <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">上一页</button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">1</button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">2</button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">3</button>
+                            <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">下一页</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

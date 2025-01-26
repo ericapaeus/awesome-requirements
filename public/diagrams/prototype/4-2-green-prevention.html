@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿色防控 - 界面原型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 提示信息 -->
+    <div class="bg-yellow-100 p-4 text-center text-yellow-800">
+        tips:该页面仅用于内容展示，美化设计将在内容确认后进行
+    </div>
+
+    <!-- 主界面 -->
+    <div class="container mx-auto p-4">
+        <!-- 顶部导航 -->
+        <div class="bg-white p-4 mb-4 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+                <h1 class="text-xl font-bold">绿色防控管理</h1>
+                <div class="space-x-2">
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded">新建任务</button>
+                    <button class="px-4 py-2 bg-green-500 text-white rounded">下发任务</button>
+                    <button class="px-4 py-2 bg-purple-500 text-white rounded">导出数据</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区 -->
+        <div class="flex gap-4">
+            <!-- 左侧菜单 -->
+            <div class="w-64 bg-white rounded-lg shadow p-4">
+                <h2 class="font-bold mb-4">报表类型</h2>
+                <ul class="space-y-2">
+                    <li class="p-2 bg-blue-100 rounded">技术指导和培训统计表</li>
+                    <li class="p-2 hover:bg-gray-100 rounded">绿色防控调查统计表</li>
+                    <li class="p-2 hover:bg-gray-100 rounded">分作物绿色防控面积统计</li>
+                    <li class="p-2 hover:bg-gray-100 rounded">技术措施应用面积统计</li>
+                </ul>
+            </div>
+
+            <!-- 中间表单区 -->
+            <div class="flex-1 bg-white rounded-lg shadow p-4">
+                <h2 class="font-bold mb-4">技术指导和培训统计表（省级）</h2>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block mb-1">培训次数</label>
+                            <input type="number" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label class="block mb-1">培训人数</label>
+                            <input type="number" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label class="block mb-1">指导农户数</label>
+                            <input type="number" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label class="block mb-1">示范面积（亩）</label>
+                            <input type="number" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label class="block mb-1">投入资金（元）</label>
+                            <input type="number" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label class="block mb-1">报告日期</label>
+                            <input type="date" class="w-full p-2 border rounded">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block mb-1">备注说明</label>
+                        <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 右侧统计区 -->
+            <div class="w-64 bg-white rounded-lg shadow p-4">
+                <h2 class="font-bold mb-4">数据统计</h2>
+                <div class="space-y-4">
+                    <div class="p-3 bg-blue-50 rounded">
+                        <div class="text-sm text-gray-600">年度累计培训次数</div>
+                        <div class="text-xl font-bold">156次</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                        <div class="text-sm text-gray-600">年度累计培训人数</div>
+                        <div class="text-xl font-bold">3,245人</div>
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                        <div class="text-sm text-gray-600">年度示范面积</div>
+                        <div class="text-xl font-bold">12,345亩</div>
+                    </div>
+                    <div class="p-3 bg-yellow-50 rounded">
+                        <div class="text-sm text-gray-600">年度投入资金</div>
+                        <div class="text-xl font-bold">￥234,567</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部图表区 -->
+        <div class="mt-4 bg-white rounded-lg shadow p-4">
+            <h2 class="font-bold mb-4">统计分析</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 border rounded">
+                    <h3 class="text-center mb-2">培训情况统计</h3>
+                    <div class="h-48 bg-gray-100 flex items-center justify-center">
+                        [培训次数和人数柱状图]
+                    </div>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="text-center mb-2">示范面积分布</h3>
+                    <div class="h-48 bg-gray-100 flex items-center justify-center">
+                        [示范面积饼图]
+                    </div>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="text-center mb-2">技术措施应用比例</h3>
+                    <div class="h-48 bg-gray-100 flex items-center justify-center">
+                        [技术措施应用比例环形图]
+                    </div>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="text-center mb-2">资金投入分析</h3>
+                    <div class="h-48 bg-gray-100 flex items-center justify-center">
+                        [资金投入趋势线图]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

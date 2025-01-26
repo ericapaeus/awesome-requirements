@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>植保员比赛试题库</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 顶部导航区 -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <img src="/images/logo.png" alt="Logo" class="h-8">
+                    <span class="text-xl font-bold">植保员比赛试题库</span>
+                </div>
+                <nav class="hidden md:flex space-x-4">
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-900">试题管理</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600">试卷管理</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600">考试管理</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600">统计分析</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="relative">
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4">3</span>
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <img src="/images/avatar.png" alt="用户头像" class="h-8 w-8 rounded-full">
+                    <span class="text-sm font-medium text-gray-900">管理员</span>
+                </div>
+                <button>
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-6 flex">
+        <!-- 左侧功能区 -->
+        <aside class="w-64 bg-white rounded-lg shadow-sm p-4">
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-sm font-medium text-gray-500 mb-2">试题管理</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-900 bg-gray-100">试题列表</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">新增试题</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">试题审核</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">知识点管理</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-medium text-gray-500 mb-2">试卷管理</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">试卷列表</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">自动组卷</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">人工组卷</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-medium text-gray-500 mb-2">考试管理</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">考试场次</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">考生管理</a></li>
+                        <li><a href="#" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">成绩管理</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="flex-1 ml-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <!-- 面包屑导航 -->
+                <div class="mb-6 flex items-center space-x-2 text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-900">试题管理</a>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    <span class="text-gray-900">试题列表</span>
+                </div>
+
+                <!-- 功能操作区 -->
+                <div class="mb-6 flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700">
+                            新增试题
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50">
+                            批量导入
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50">
+                            批量导出
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" placeholder="搜索试题..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md w-64">
+                            <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50">
+                            高级筛选
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 数据展示区 -->
+                <div class="border rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <input type="checkbox" class="rounded border-gray-300 text-blue-600">
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    题干
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    题型
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    难度
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    知识点
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    创建时间
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="checkbox" class="rounded border-gray-300 text-blue-600">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">水稻纹枯病的主要症状是（）</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        单选题
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                        中等
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">水稻病害</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    2024-03-20 10:30
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                    <a href="#" class="text-blue-600 hover:text-blue-900">编辑</a>
+                                    <a href="#" class="text-red-600 hover:text-red-900">删除</a>
+                                </td>
+                            </tr>
+                            <!-- 更多行... -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 分页控制区 -->
+                <div class="mt-6 flex items-center justify-between">
+                    <div class="text-sm text-gray-700">
+                        显示第 <span class="font-medium">1</span> 到 <span class="font-medium">10</span> 条，共 <span class="font-medium">50</span> 条
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 disabled:opacity-50" disabled>
+                            上一页
+                        </button>
+                        <button class="px-3 py-2 border border-gray-300 bg-blue-50 text-blue-600 text-sm font-medium rounded-md">
+                            1
+                        </button>
+                        <button class="px-3 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50">
+                            2
+                        </button>
+                        <button class="px-3 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50">
+                            3
+                        </button>
+                        <button class="px-3 py-2 border border-gray-300 text-sm font-medium rounded-md hover:bg-gray-50">
+                            下一页
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 右侧快捷操作区 -->
+        <aside class="w-64 ml-6">
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+                <h3 class="text-sm font-medium text-gray-900 mb-4">快捷操作</h3>
+                <div class="space-y-2">
+                    <button class="w-full px-4 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">
+                        导入模板下载
+                    </button>
+                    <button class="w-full px-4 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">
+                        批量导出结果
+                    </button>
+                    <button class="w-full px-4 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">
+                        数据统计报表
+                    </button>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-4">
+                <h3 class="text-sm font-medium text-gray-900 mb-4">操作指引</h3>
+                <div class="space-y-4 text-sm text-gray-600">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-1">如何添加试题？</h4>
+                        <p>点击"新增试题"按钮，填写试题信息，设置答案和解析，关联知识点后提交审核。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-1">如何批量导入？</h4>
+                        <p>下载导入模板，按格式填写试题信息，点击"批量导入"上传文件即可。</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html> 

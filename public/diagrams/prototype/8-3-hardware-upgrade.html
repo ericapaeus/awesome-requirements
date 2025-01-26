@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指挥调度室硬件完善和升级</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="text-center py-4 bg-yellow-100 text-red-500 font-bold">
+        tips:该页面仅用于内容展示，美化设计将在内容确认后进行
+    </div>
+    
+    <div class="container mx-auto p-4">
+        <!-- 顶部导航 -->
+        <div class="bg-white rounded-lg shadow mb-4 p-4">
+            <div class="flex justify-between items-center">
+                <div class="space-x-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">设备管理</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">网络配置</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">系统监控</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">维护管理</button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-green-500 text-white px-4 py-2 rounded">添加设备</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="grid grid-cols-2 gap-4">
+            <!-- 设备状态监控 -->
+            <div class="bg-white rounded-lg shadow p-4">
+                <h3 class="font-bold mb-4">设备状态监控</h3>
+                <div class="space-y-4">
+                    <!-- 摄像机状态 -->
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <div>
+                            <span class="font-medium">会议云台摄像机</span>
+                            <span class="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">正常运行</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-500">在线</span>
+                        </div>
+                    </div>
+                    <!-- 话筒状态 -->
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <div>
+                            <span class="font-medium">会议话筒系统</span>
+                            <span class="ml-2 px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">需要维护</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <span class="text-sm text-gray-500">待维护</span>
+                        </div>
+                    </div>
+                    <!-- 音响状态 -->
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <div>
+                            <span class="font-medium">会议音响系统</span>
+                            <span class="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">正常运行</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-500">在线</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 网络状态监控 -->
+            <div class="bg-white rounded-lg shadow p-4">
+                <h3 class="font-bold mb-4">网络状态监控</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span>网络带宽使用率</span>
+                        <span class="text-blue-600">75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-500">上行带宽</div>
+                            <div class="text-xl font-bold">50 Mbps</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-500">下行带宽</div>
+                            <div class="text-xl font-bold">100 Mbps</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系统配置管理 -->
+            <div class="bg-white rounded-lg shadow p-4">
+                <h3 class="font-bold mb-4">系统配置管理</h3>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">视频质量</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                <option>1080P</option>
+                                <option>720P</option>
+                                <option>480P</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">音频质量</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                <option>高质量</option>
+                                <option>标准质量</option>
+                                <option>流畅质量</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white px-4 py-2 rounded">保存配置</button>
+                </div>
+            </div>
+
+            <!-- 维护任务管理 -->
+            <div class="bg-white rounded-lg shadow p-4">
+                <h3 class="font-bold mb-4">维护任务管理</h3>
+                <div class="space-y-4">
+                    <div class="border-b pb-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">话筒系统维护</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">待处理</span>
+                        </div>
+                        <div class="text-sm text-gray-500 mt-1">计划时间：2024-03-15</div>
+                    </div>
+                    <div class="border-b pb-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">网络设备升级</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">进行中</span>
+                        </div>
+                        <div class="text-sm text-gray-500 mt-1">计划时间：2024-03-20</div>
+                    </div>
+                    <button class="w-full bg-green-500 text-white px-4 py-2 rounded">添加维护任务</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

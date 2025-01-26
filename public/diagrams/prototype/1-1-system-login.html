@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统登录 - 安徽省病虫疫情信息调度指挥平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+    <!-- 顶部Logo区域 -->
+    <div class="text-center pt-10 mb-8">
+        <h1 class="text-2xl font-bold text-gray-800">安徽省病虫疫情信息调度指挥平台</h1>
+        <p class="text-gray-600 mt-2">Plant Protection Command Platform</p>
+    </div>
+
+    <!-- 登录表单区域 -->
+    <div class="flex-grow flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+            <form class="space-y-6">
+                <!-- 账号输入框 -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">账号</label>
+                    <input type="text" id="username" name="username" 
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                           placeholder="请输入账号">
+                </div>
+
+                <!-- 密码输入框 -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">密码</label>
+                    <input type="password" id="password" name="password" 
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                           placeholder="请输入密码">
+                </div>
+
+                <!-- 验证码区域 -->
+                <div>
+                    <label for="captcha" class="block text-sm font-medium text-gray-700">验证码</label>
+                    <div class="mt-1 flex space-x-2">
+                        <input type="text" id="captcha" name="captcha" 
+                               class="block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                               placeholder="请输入验证码">
+                        <div class="w-24 h-10 bg-gray-200 rounded flex items-center justify-center cursor-pointer"
+                             onclick="alert('刷新验证码')">
+                            <span class="text-gray-600 text-sm">点击刷新</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 记住账号选项 -->
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember"
+                           class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                    <label for="remember" class="ml-2 block text-sm text-gray-700">记住账号</label>
+                </div>
+
+                <!-- 登录按钮 -->
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        登录
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 页脚区域 -->
+    <footer class="py-4 text-center text-gray-600 text-sm">
+        <p>Copyright © 2024 金禾天成科技有限公司</p>
+    </footer>
+</body>
+</html> 

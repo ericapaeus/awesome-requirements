@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>业务展示 - 安徽省病虫疫情信息调度指挥平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        .loading-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error-message {
+            padding: 1rem;
+            background-color: #fee2e2;
+            border: 1px solid #ef4444;
+            border-radius: 0.375rem;
+            color: #991b1b;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold text-gray-800">安徽省病虫疫情信息调度指挥平台</div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-gray-500">数据更新时间：2024-01-24 10:30:00</div>
+                    <span class="text-gray-600">欢迎，管理员</span>
+                    <button class="text-gray-600 hover:text-gray-800">退出</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 错误消息提示 -->
+    <div id="errorMessage" class="error-message mx-4 mt-4">
+        <div class="flex">
+            <div class="flex-shrink-0">
+                <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+            <div class="ml-3">
+                <h3 class="text-sm font-medium text-red-800">数据加载失败</h3>
+                <div class="mt-2 text-sm text-red-700">
+                    <p>请检查网络连接后重试。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex h-[calc(100vh-4rem)]">
+        <!-- 左侧菜单栏 -->
+        <div class="w-64 bg-white shadow-sm">
+            <nav class="mt-5 px-2">
+                <a href="#" class="group flex items-center px-2 py-2 text-base font-medium rounded-md bg-blue-100 text-blue-600">
+                    业务展示
+                </a>
+                <a href="#" class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    信息发布
+                </a>
+                <a href="#" class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    资料查询
+                </a>
+                <a href="#" class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    首页管理
+                </a>
+            </nav>
+        </div>
+
+        <!-- 主要内容区 -->
+        <div class="flex-1 overflow-auto">
+            <div class="py-6">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- 数据筛选区 -->
+                    <div class="mb-6 bg-white rounded-lg shadow p-4">
+                        <div class="grid grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">地区</label>
+                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <option>全省</option>
+                                    <option>合肥市</option>
+                                    <option>芜湖市</option>
+                                    <option>蚌埠市</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">作物类型</label>
+                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <option>全部</option>
+                                    <option>水稻</option>
+                                    <option>小麦</option>
+                                    <option>玉米</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">病虫害类型</label>
+                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <option>全部</option>
+                                    <option>病害</option>
+                                    <option>虫害</option>
+                                    <option>杂草</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">时间范围</label>
+                                <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 四个卡片的网格布局 -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- 病虫概览卡片 -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium text-gray-900">病虫概览</h3>
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-sm text-blue-600 hover:text-blue-700">导出数据</button>
+                                    <button class="text-gray-400 hover:text-gray-500">
+                                        <span class="sr-only">展开</span>
+                                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="h-64 bg-gray-100 rounded flex items-center justify-center relative" id="pestMap">
+                                <div class="loading-overlay">
+                                    <div class="loading-spinner"></div>
+                                </div>
+                                病虫害分布地图占位
+                            </div>
+                            <div class="mt-4 grid grid-cols-3 gap-4">
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <div class="text-sm text-gray-500">发生面积</div>
+                                    <div class="text-xl font-semibold text-gray-900">12,345 亩</div>
+                                    <div class="text-xs text-green-600">较上周增长 5.2%</div>
+                                    <div class="text-xs text-gray-400 mt-1">(示例数据)</div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <div class="text-sm text-gray-500">严重程度</div>
+                                    <div class="text-xl font-semibold text-orange-600">中等</div>
+                                    <div class="text-xs text-gray-500">影响 3 个市</div>
+                                    <div class="text-xs text-gray-400 mt-1">(示例数据)</div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <div class="text-sm text-gray-500">防控进度</div>
+                                    <div class="text-xl font-semibold text-green-600">76.5%</div>
+                                    <div class="text-xs text-gray-500">已完成面积</div>
+                                    <div class="text-xs text-gray-400 mt-1">(示例数据)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 实时监控卡片 -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium text-gray-900">实时监控</h3>
+                                <div class="flex items-center space-x-2">
+                                    <select class="text-sm border-gray-300 rounded-md">
+                                        <option>近24小时</option>
+                                        <option>近7天</option>
+                                        <option>近30天</option>
+                                    </select>
+                                    <button class="text-gray-400 hover:text-gray-500">
+                                        <span class="sr-only">展开</span>
+                                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="h-48 bg-gray-100 rounded relative" id="monitorChart">
+                                    <div class="loading-overlay">
+                                        <div class="loading-spinner"></div>
+                                    </div>
+                                    监测数据趋势图占位
+                                </div>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="bg-gray-50 p-4 rounded">
+                                        <div class="text-sm text-gray-500">监测点总数</div>
+                                        <div class="text-xl font-semibold text-gray-900">156 个</div>
+                                        <div class="text-xs text-gray-500">覆盖16个县区</div>
+                                        <div class="text-xs text-gray-400 mt-1">(示例数据)</div>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded">
+                                        <div class="text-sm text-gray-500">在线率</div>
+                                        <div class="text-xl font-semibold text-green-600">98.5%</div>
+                                        <div class="text-xs text-red-500">3个离线</div>
+                                        <div class="text-xs text-gray-400 mt-1">(示例数据)</div>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded">
+                                        <div class="text-sm text-gray-500">数据采集率</div>
+                                        <div class="text-xl font-semibold text-blue-600">95.8%</div>
+                                        <div class="text-xs text-gray-500">今日采集</div>
+                                        <div class="text-xs text-gray-400 mt-1">(示例数据)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 预警信息卡片 -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium text-gray-900">预警信息</h3>
+                                <div class="flex items-center space-x-2">
+                                    <div class="text-sm text-gray-500">
+                                        <span class="text-red-600 font-medium">2</span> 个高风险
+                                        <span class="text-yellow-600 font-medium ml-2">5</span> 个中风险
+                                    </div>
+                                    <button class="text-gray-400 hover:text-gray-500">
+                                        <span class="sr-only">展开</span>
+                                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                                    <div class="flex">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h3 class="text-sm font-medium text-red-800">高风险预警</h3>
+                                            <div class="mt-2 text-sm text-red-700">
+                                                <p>合肥市小麦赤霉病发生风险较高，建议及时采取防控措施。</p>
+                                                <p class="mt-1 text-xs">影响范围：肥东县、肥西县</p>
+                                                <p class="mt-1 text-xs">发布时间：2024-01-24 08:30</p>
+                                            </div>
+                                            <div class="mt-2">
+                                                <button class="text-sm text-red-700 hover:text-red-600">查看详情</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                    <div class="flex">
+                                        <div class="flex-shrink-0">
+                                            <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h3 class="text-sm font-medium text-yellow-800">中风险预警</h3>
+                                            <div class="mt-2 text-sm text-yellow-700">
+                                                <p>芜湖市水稻病虫害发生程度中等，请密切关注。</p>
+                                                <p class="mt-1 text-xs">影响范围：镜湖区、鸠江区</p>
+                                                <p class="mt-1 text-xs">发布时间：2024-01-24 09:15</p>
+                                            </div>
+                                            <div class="mt-2">
+                                                <button class="text-sm text-yellow-700 hover:text-yellow-600">查看详情</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 待处理任务卡片 -->
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium text-gray-900">待处理任务</h3>
+                                <div class="flex items-center space-x-2">
+                                    <select class="text-sm border-gray-300 rounded-md">
+                                        <option>全部任务</option>
+                                        <option>紧急任务</option>
+                                        <option>普通任务</option>
+                                    </select>
+                                    <button class="text-gray-400 hover:text-gray-500">
+                                        <span class="sr-only">展开</span>
+                                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">任务类型</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">地区</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">截止时间</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">数据填报</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">合肥市</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-25</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待处理</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+                                                <button class="hover:text-blue-700">处理</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">防控调查</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">芜湖市</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-26</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">紧急</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+                                                <button class="hover:text-blue-700">处理</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="bg-gray-50 px-6 py-3 flex justify-between items-center">
+                                    <div class="text-sm text-gray-500">
+                                        共 <span class="font-medium">12</span> 个任务
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="px-3 py-1 border rounded text-sm text-gray-600 hover:bg-gray-100">上一页</button>
+                                        <button class="px-3 py-1 border rounded text-sm text-gray-600 hover:bg-gray-100">下一页</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧快捷操作区 -->
+        <div class="w-64 bg-white shadow-sm p-4">
+            <h4 class="text-lg font-medium text-gray-900 mb-4">快捷操作</h4>
+            <div class="space-y-2">
+                <button class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">新建任务</button>
+                <button class="w-full px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded hover:bg-gray-50">数据导出</button>
+                <button class="w-full px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded hover:bg-gray-50">生成报告</button>
+            </div>
+            <div class="mt-6">
+                <h5 class="text-sm font-medium text-gray-700 mb-2">常用功能</h5>
+                <div class="space-y-1">
+                    <a href="#" class="block text-sm text-gray-600 hover:text-blue-600">监测点管理</a>
+                    <a href="#" class="block text-sm text-gray-600 hover:text-blue-600">数据分析</a>
+                    <a href="#" class="block text-sm text-gray-600 hover:text-blue-600">预警设置</a>
+                    <a href="#" class="block text-sm text-gray-600 hover:text-blue-600">统计报表</a>
+                </div>
+            </div>
+            <div class="mt-6">
+                <h5 class="text-sm font-medium text-gray-700 mb-2">系统状态</h5>
+                <div class="text-sm text-gray-600">
+                    <div class="flex justify-between items-center mb-1">
+                        <span>数据同步</span>
+                        <span class="text-green-600">正常</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span>预警推送</span>
+                        <span class="text-green-600">正常</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>系统负载</span>
+                        <span class="text-green-600">良好</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟数据加载
+        function simulateDataLoading() {
+            const loadingOverlays = document.querySelectorAll('.loading-overlay');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // 显示加载状态
+            loadingOverlays.forEach(overlay => {
+                overlay.style.display = 'flex';
+            });
+
+            // 模拟异步数据加载
+            setTimeout(() => {
+                // 随机模拟成功或失败
+                const isSuccess = Math.random() > 0.2;
+                
+                if (isSuccess) {
+                    // 加载成功
+                    loadingOverlays.forEach(overlay => {
+                        overlay.style.display = 'none';
+                    });
+                    errorMessage.style.display = 'none';
+                    initializeCharts();
+                } else {
+                    // 加载失败
+                    loadingOverlays.forEach(overlay => {
+                        overlay.style.display = 'none';
+                    });
+                    errorMessage.style.display = 'block';
+                }
+            }, 1500);
+        }
+
+        // 初始化图表
+        function initializeCharts() {
+            const monitorChart = echarts.init(document.getElementById('monitorChart'));
+            const option = {
+                title: {
+                    text: '监测数据趋势（示例数据）',
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['灯诱虫量', '性诱虫量', '病害程度']
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '灯诱虫量',
+                        type: 'line',
+                        data: [120, 132, 101, 134, 90, 230, 210, 182]
+                    },
+                    {
+                        name: '性诱虫量',
+                        type: 'line',
+                        data: [220, 182, 191, 234, 290, 330, 310, 123]
+                    },
+                    {
+                        name: '病害程度',
+                        type: 'line',
+                        data: [150, 232, 201, 154, 190, 330, 410, 323]
+                    }
+                ]
+            };
+            monitorChart.setOption(option);
+        }
+
+        // 页面加载时启动数据加载
+        document.addEventListener('DOMContentLoaded', simulateDataLoading);
+
+        // 窗口大小改变时重绘图表
+        window.addEventListener('resize', function() {
+            const monitorChart = echarts.init(document.getElementById('monitorChart'));
+            monitorChart.resize();
+        });
+    </script>
+</body>
+</html> 

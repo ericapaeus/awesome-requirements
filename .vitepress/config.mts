@@ -26,8 +26,8 @@ export default withMermaid(
       nav: [
         { text: '首页', link: '/' },
         { text: '项目概述', link: '/docs/overview/background' },
-        { text: '业务需求', link: '/docs/requirements/overview' },
-        { text: '技术规格', link: '/docs/specifications/index' },
+        { text: '业务需求', link: '/docs/requirements/index' },
+        { text: '技术规格', link: '/docs/specifications/interfaces' },
         { text: '附录', link: '/docs/appendix/reports', activeMatch: '^/docs/appendix/' },
         { text: '关于', link: '/prompts/readme', activeMatch: '^/prompts/' }
       ],
@@ -57,14 +57,14 @@ export default withMermaid(
           {
             text: '功能需求',
             items: [
-              { text: '功能概述', link: '/docs/requirements/overview' },
+              { text: '功能概述', link: '/docs/requirements/index' },
               { text: '1. 工作平台', link: '/docs/requirements/1-work-platform' },
               { text: '2. 物联网数据管理', link: '/docs/requirements/2-iot-management' },
               { text: '3. 病虫预警分析', link: '/docs/requirements/3-pest-warning' },
               { text: '4. 国家系统对接', link: '/docs/requirements/4-national-system' },
               { text: '5. 防治监管', link: '/docs/requirements/5-prevention-supervision' },
               { text: '6. 业务应用', link: '/docs/requirements/6-business-application' },
-              { text: '7. 病虫害知识库', link: '/docs/requirements/7-knowledge-base' },
+              { text: '7. 病虫害知识库', link: '/docs/requirements/7-pest-knowledge-base' },
               { text: '8. 指挥调度一张图', link: '/docs/requirements/8-command-map' }
             ]
           },

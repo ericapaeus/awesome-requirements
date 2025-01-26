@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病虫测防联动一张图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="text-center py-4 bg-yellow-100 text-red-500 font-bold">
+        tips:该页面仅用于内容展示，美化设计将在内容确认后进行
+    </div>
+    
+    <div class="container mx-auto p-4">
+        <!-- 顶部导航 -->
+        <div class="bg-white rounded-lg shadow mb-4 p-4">
+            <div class="flex justify-between items-center">
+                <div class="space-x-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">全省病虫害发生防治</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">小麦赤霉病发生防治</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">草地贪夜蛾发生防治</button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <input type="date" class="border rounded px-2 py-1">
+                    <button class="bg-green-500 text-white px-4 py-2 rounded">导出数据</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="flex gap-4">
+            <!-- 左侧统计数据 -->
+            <div class="w-1/4 space-y-4">
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="font-bold mb-2">新增发生面积</h3>
+                    <div class="text-2xl font-bold text-blue-600">12,345 亩</div>
+                    <div class="text-sm text-gray-500">较上周增长 5.2%</div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="font-bold mb-2">累计发生面积</h3>
+                    <div class="text-2xl font-bold text-green-600">123,456 亩</div>
+                    <div class="text-sm text-gray-500">较上年同期增长 3.1%</div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="font-bold mb-2">累计防治面积</h3>
+                    <div class="text-2xl font-bold text-purple-600">98,765 亩</div>
+                    <div class="text-sm text-gray-500">防治率 80.2%</div>
+                </div>
+            </div>
+
+            <!-- 中间地图区域 -->
+            <div class="w-1/2 bg-white rounded-lg shadow p-4">
+                <div class="border-2 border-dashed border-gray-300 rounded-lg h-[600px] flex items-center justify-center">
+                    <div class="text-gray-500">GIS地图展示区域</div>
+                </div>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <button class="bg-gray-200 px-3 py-1 rounded">放大</button>
+                    <button class="bg-gray-200 px-3 py-1 rounded">缩小</button>
+                    <button class="bg-gray-200 px-3 py-1 rounded">图层</button>
+                    <button class="bg-gray-200 px-3 py-1 rounded">图例</button>
+                </div>
+            </div>
+
+            <!-- 右侧趋势图表 -->
+            <div class="w-1/4 space-y-4">
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="font-bold mb-2">发生面积趋势</h3>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg h-[200px] flex items-center justify-center">
+                        <div class="text-gray-500">趋势图表区域</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="font-bold mb-2">病虫害占比</h3>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg h-[200px] flex items-center justify-center">
+                        <div class="text-gray-500">饼图区域</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="font-bold mb-2">防治进度</h3>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg h-[100px] flex items-center justify-center">
+                        <div class="text-gray-500">进度条区域</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

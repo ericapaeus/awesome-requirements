@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>植保体系管理 - 界面原型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 提示信息 -->
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+        <p class="font-bold">tips:该页面仅用于内容展示，美化设计将在内容确认后进行</p>
+    </div>
+
+    <!-- 主界面 -->
+    <div class="container mx-auto px-4">
+        <!-- 顶部导航 -->
+        <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <div class="flex justify-between items-center">
+                <div class="flex space-x-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">机构管理</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">改革管理</button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">基本情况</button>
+                </div>
+                <div class="flex space-x-4">
+                    <button class="bg-green-500 text-white px-4 py-2 rounded">新增</button>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded">保存</button>
+                    <button class="bg-gray-500 text-white px-4 py-2 rounded">导出</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区 -->
+        <div class="flex space-x-4">
+            <!-- 左侧导航 -->
+            <div class="w-1/4 bg-white shadow-md rounded-lg p-4">
+                <div class="mb-4">
+                    <h3 class="font-bold mb-2">机构分类</h3>
+                    <ul class="space-y-2">
+                        <li class="bg-blue-100 p-2 rounded">省级机构</li>
+                        <li class="hover:bg-gray-100 p-2 rounded">市级机构</li>
+                        <li class="hover:bg-gray-100 p-2 rounded">县级机构</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 中间内容区 -->
+            <div class="w-2/4 bg-white shadow-md rounded-lg p-4">
+                <div class="mb-4">
+                    <h3 class="font-bold mb-4">机构基本信息</h3>
+                    <form class="space-y-4">
+                        <div class="flex items-center">
+                            <label class="w-24">机构名称：</label>
+                            <input type="text" class="flex-1 border rounded p-2" value="安徽省植保站"/>
+                        </div>
+                        <div class="flex items-center">
+                            <label class="w-24">机构类型：</label>
+                            <select class="flex-1 border rounded p-2">
+                                <option>事业单位</option>
+                                <option>企业</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center">
+                            <label class="w-24">机构级别：</label>
+                            <select class="flex-1 border rounded p-2">
+                                <option>省级</option>
+                                <option>市级</option>
+                                <option>县级</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center">
+                            <label class="w-24">人员编制：</label>
+                            <input type="number" class="flex-1 border rounded p-2" value="50"/>
+                        </div>
+                        <div class="flex items-center">
+                            <label class="w-24">联系电话：</label>
+                            <input type="tel" class="flex-1 border rounded p-2"/>
+                        </div>
+                        <div class="flex items-start">
+                            <label class="w-24">机构职能：</label>
+                            <textarea class="flex-1 border rounded p-2" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 右侧状态区 -->
+            <div class="w-1/4 bg-white shadow-md rounded-lg p-4">
+                <div class="mb-4">
+                    <h3 class="font-bold mb-2">机构状态</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-100 p-4 rounded">
+                            <div class="text-sm text-gray-600">在编人数</div>
+                            <div class="text-2xl font-bold">45人</div>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <div class="text-sm text-gray-600">设备数量</div>
+                            <div class="text-2xl font-bold">128台</div>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <div class="text-sm text-gray-600">年度经费</div>
+                            <div class="text-2xl font-bold">280万元</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部统计图表 -->
+        <div class="mt-4 bg-white shadow-md rounded-lg p-4">
+            <div class="mb-4">
+                <h3 class="font-bold mb-2">统计分析</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-100 p-4 rounded">
+                        <div class="text-center">机构分布统计图</div>
+                        <div class="h-48 flex items-center justify-center">
+                            图表区域
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded">
+                        <div class="text-center">人员结构分析图</div>
+                        <div class="h-48 flex items-center justify-center">
+                            图表区域
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

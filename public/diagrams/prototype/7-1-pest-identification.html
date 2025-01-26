@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病虫草害识别知识库</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="text-center py-4 bg-yellow-100 text-red-500 font-bold">
+        tips:该页面仅用于内容展示，美化设计将在内容确认后进行
+    </div>
+    
+    <!-- 主布局 -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- 顶部区域 -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold">病虫草害识别知识库</h1>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="搜索病虫草害..." class="w-64 px-4 py-2 border rounded-lg">
+                    <button class="absolute right-2 top-2">🔍</button>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span>管理员</span>
+                    <img src="https://via.placeholder.com/32" class="w-8 h-8 rounded-full">
+                </div>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="flex gap-4">
+            <!-- 左侧导航 -->
+            <div class="w-64 bg-white p-4 rounded-lg shadow">
+                <h2 class="font-bold mb-4">分类导航</h2>
+                <div class="space-y-2">
+                    <div class="font-medium">按作物分类</div>
+                    <ul class="pl-4 space-y-1">
+                        <li>水稻 (50+)</li>
+                        <li>小麦 (50+)</li>
+                        <li>玉米 (50+)</li>
+                        <li>大豆 (50+)</li>
+                        <li>油菜 (10+)</li>
+                        <li>马铃薯 (10+)</li>
+                    </ul>
+                    
+                    <div class="font-medium mt-4">按病害类型</div>
+                    <ul class="pl-4 space-y-1">
+                        <li>细菌性病害</li>
+                        <li>真菌性病害</li>
+                        <li>病毒性病害</li>
+                        <li>生理性病害</li>
+                    </ul>
+                    
+                    <div class="font-medium mt-4">按虫害类型</div>
+                    <ul class="pl-4 space-y-1">
+                        <li>地下害虫</li>
+                        <li>麦类害虫</li>
+                        <li>禾谷类杂粮害虫</li>
+                        <li>棉麻虫类</li>
+                        <li>油料作物害虫</li>
+                        <li>薯类害虫</li>
+                        <li>糖类害虫</li>
+                        <li>储粮害虫</li>
+                        <li class="mt-2">特殊分类：</li>
+                        <li class="pl-2">灯下害虫</li>
+                        <li class="pl-2">田间害虫</li>
+                    </ul>
+
+                    <div class="font-medium mt-4">按草害类型</div>
+                    <ul class="pl-4 space-y-1">
+                        <li>禾草类</li>
+                        <li>莎草类</li>
+                        <li>阔叶草类</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 主内容区 -->
+            <div class="flex-1 bg-white p-4 rounded-lg shadow">
+                <!-- 视图切换 -->
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex space-x-2">
+                        <button class="px-4 py-2 bg-blue-500 text-white rounded">列表视图</button>
+                        <button class="px-4 py-2 bg-gray-200 rounded">卡片视图</button>
+                    </div>
+                    <div class="flex space-x-2">
+                        <select class="border rounded px-2 py-1">
+                            <option>按名称排序</option>
+                            <option>按更新时间排序</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 列表内容 -->
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 p-2 rounded text-sm text-gray-600">
+                        以下为示例数据，仅用于展示界面布局和交互方式
+                    </div>
+                    
+                    <!-- 示例条目 -->
+                    <div class="border p-4 rounded-lg flex gap-4">
+                        <img src="https://via.placeholder.com/120" class="w-30 h-30 object-cover rounded">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg">水稻稻瘟病（示例）</h3>
+                            <p class="text-gray-600">类型：真菌性病害</p>
+                            <p class="text-sm text-gray-500 mt-2">
+                                稻瘟病是由稻瘟菌引起的水稻最主要病害之一，可为害叶片、节、穗颈等部位...（示例描述）
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 更多示例条目 -->
+                    <div class="border p-4 rounded-lg flex gap-4">
+                        <img src="https://via.placeholder.com/120" class="w-30 h-30 object-cover rounded">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg">小麦赤霉病（示例）</h3>
+                            <p class="text-gray-600">类型：真菌性病害</p>
+                            <p class="text-sm text-gray-500 mt-2">
+                                小麦赤霉病是一种严重危害小麦的真菌性病害，主要危害小麦穗部...（示例描述）
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分页 -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="px-4 py-2 border rounded">上一页</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded">1</button>
+                    <button class="px-4 py-2 border rounded">2</button>
+                    <button class="px-4 py-2 border rounded">3</button>
+                    <button class="px-4 py-2 border rounded">下一页</button>
+                </div>
+            </div>
+
+            <!-- 右侧推荐 -->
+            <div class="w-64 bg-white p-4 rounded-lg shadow">
+                <h2 class="font-bold mb-4">相关推荐</h2>
+                <div class="bg-yellow-50 p-2 rounded text-sm text-gray-600 mb-4">
+                    以下为示例推荐数据
+                </div>
+                <div class="space-y-4">
+                    <div class="border-b pb-2">
+                        <h3 class="font-medium">水稻纹枯病（示例）</h3>
+                        <p class="text-sm text-gray-500">真菌性病害</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <h3 class="font-medium">水稻白叶枯病（示例）</h3>
+                        <p class="text-sm text-gray-500">细菌性病害</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <h3 class="font-medium">水稻恶苗病（示例）</h3>
+                        <p class="text-sm text-gray-500">真菌性病害</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

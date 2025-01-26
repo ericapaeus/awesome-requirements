@@ -12,7 +12,7 @@ hero:
       link: /docs/overview/background
     - theme: alt
       text: 功能特色
-      link: /docs/requirements/main-page
+      link: /docs/requirements/index
 
 features:
   - title: 物联网数据应用与管理

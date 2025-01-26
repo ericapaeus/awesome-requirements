@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页管理 - 原型设计</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 顶部导航 -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold">首页管理</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            布局管理
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            信息管理
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            审核管理
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            统计分析
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- 布局管理 -->
+        <div class="flex h-[calc(100vh-8rem)]">
+            <!-- 左侧模块分类导航 -->
+            <div class="w-64 bg-white shadow-sm rounded-lg mr-4 p-4">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">模块分类</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center p-2 bg-indigo-50 rounded-md">
+                        <span class="text-indigo-600">动态信息区</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-50 rounded-md">
+                        <span class="text-gray-700">病虫信息区</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-50 rounded-md">
+                        <span class="text-gray-700">病虫情报区</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-50 rounded-md">
+                        <span class="text-gray-700">防治措施区</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 中部布局设计区 -->
+            <div class="flex-1 bg-white shadow-sm rounded-lg mr-4 p-4">
+                <div class="border-2 border-dashed border-gray-300 rounded-lg h-full p-4">
+                    <!-- 动态信息区模块 -->
+                    <div class="bg-white shadow rounded-lg p-4 mb-4 cursor-move">
+                        <h4 class="font-medium text-gray-900">工作动态</h4>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="mr-2">•</span>
+                                <span>关于开展2024年植保工作的通知</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="mr-2">•</span>
+                                <span>2023年度植保工作总结会议纪要</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 病虫信息区模块 -->
+                    <div class="bg-white shadow rounded-lg p-4 mb-4 cursor-move">
+                        <h4 class="font-medium text-gray-900">发生态势</h4>
+                        <div class="mt-2 h-40 bg-gray-100 rounded flex items-center justify-center">
+                            [病虫害分布地图占位]
+                        </div>
+                    </div>
+
+                    <!-- 病虫情报区模块 -->
+                    <div class="bg-white shadow rounded-lg p-4 mb-4 cursor-move">
+                        <h4 class="font-medium text-gray-900">预警信息</h4>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex items-center">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">紧急</span>
+                                <span class="ml-2 text-sm text-gray-600">小麦赤霉病预警</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800">警告</span>
+                                <span class="ml-2 text-sm text-gray-600">稻飞虱发生预警</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 防治措施区模块 -->
+                    <div class="bg-white shadow rounded-lg p-4 cursor-move">
+                        <h4 class="font-medium text-gray-900">防控指导</h4>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="mr-2">📄</span>
+                                <span>小麦赤霉病防治技术方案</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="mr-2">📄</span>
+                                <span>水稻病虫害绿色防控指南</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧属性配置区 -->
+            <div class="w-80 bg-white shadow-sm rounded-lg p-4">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">模块属性</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">显示设置</label>
+                        <div class="mt-1">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" checked>
+                                <span class="ml-2 text-sm text-gray-600">显示模块</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">刷新频率</label>
+                        <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option>实时刷新</option>
+                            <option>每分钟</option>
+                            <option>每5分钟</option>
+                            <option>每小时</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">数据来源</label>
+                        <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option>系统数据</option>
+                            <option>物联网数据</option>
+                            <option>人工填报数据</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">展示样式</label>
+                        <div class="mt-1 space-y-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio text-indigo-600" name="style" checked>
+                                <span class="ml-2 text-sm text-gray-600">列表视图</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio text-indigo-600" name="style">
+                                <span class="ml-2 text-sm text-gray-600">卡片视图</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio text-indigo-600" name="style">
+                                <span class="ml-2 text-sm text-gray-600">图表视图</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        保存设置
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

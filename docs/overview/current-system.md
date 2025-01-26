@@ -57,27 +57,30 @@ title: 系统现状
 2023年春季，系统在全省小麦赤霉病防控工作中发挥了重要作用。通过多源数据融合分析和智能预警，实现了对病害发生的精准预测和科学防控。
 
 ```mermaid
-graph TB
-    subgraph 监测预警阶段
-    A1[气象监测] --> A2[病情监测]
-    A2 --> A3[趋势分析]
-    A3 --> A4[预警发布]
+flowchart LR
+    subgraph G1 [监测预警阶段]
+        direction TB
+        A1[气象监测] --> A2[病情监测]
+        A2 --> A3[趋势分析]
+        A3 --> A4[预警发布]
     end
 
-    subgraph 防控实施阶段
-    B1[专家会商] --> B2[方案制定]
-    B2 --> B3[资源调度]
-    B3 --> B4[防控实施]
+    subgraph G2 [防控实施阶段]
+        direction TB
+        B1[专家会商] --> B2[方案制定]
+        B2 --> B3[资源调度]
+        B3 --> B4[防控实施]
     end
 
-    subgraph 效果评估阶段
-    C1[数据采集] --> C2[效果分析]
-    C2 --> C3[经验总结]
-    C3 --> C4[模型优化]
+    subgraph G3 [效果评估阶段]
+        direction TB
+        C1[数据采集] --> C2[效果分析]
+        C2 --> C3[经验总结]
+        C3 --> C4[模型优化]
     end
 
-    A4 --> B1
-    B4 --> C1
+    G1 --> G2
+    G2 --> G3
 ```
 
 具体实施效果：
@@ -94,19 +97,21 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 虫情监测
+    subgraph G1 [虫情监测]
+    direction LR
     A1[性诱监测] --> A2[田间调查]
     A2 --> A3[数据汇总]
     A3 --> A4[发生趋势]
     end
 
-    subgraph 联防联控
+    subgraph G2 [联防联控]
+    direction LR
     B1[区域协同] --> B2[资源共享]
     B2 --> B3[统一行动]
     B3 --> B4[效果评价]
     end
 
-    A4 --> B1
+    G1 --> G2
 ```
 
 防控成效分析：
@@ -155,24 +160,24 @@ graph TB
 ### 性能优化方向
 
 ```mermaid
-graph LR
-    subgraph 短期优化
+graph TB
+    subgraph G1 [短期优化]
     A1[并发能力提升] --> A2[响应时间优化]
     A2 --> A3[数据处理提速]
     end
 
-    subgraph 中期优化
+    subgraph G2 [中期优化]
     B1[架构升级] --> B2[存储优化]
     B2 --> B3[服务治理]
     end
 
-    subgraph 长期优化
+    subgraph G3 [长期优化]
     C1[智能化升级] --> C2[弹性伸缩]
     C2 --> C3[容灾备份]
     end
 
-    A3 --> B1
-    B3 --> C1
+    G1 --> G2
+    G2 --> G3
 ```
 
 ## 系统优化机会
