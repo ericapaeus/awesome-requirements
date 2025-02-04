@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
+import { fileURLToPath, URL } from 'node:url'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(
@@ -19,6 +20,16 @@ export default withMermaid(
       },
       optimizeDeps: {
         exclude: ['vitepress-export-pdf']
+      },
+      server: {
+        fs: {
+          allow: ['..']
+        }
+      },
+      resolve: {
+        alias: {
+          '@': fileURLToPath(new URL('../', import.meta.url))
+        }
       }
     },
     themeConfig: {
@@ -27,9 +38,13 @@ export default withMermaid(
         { text: '首页', link: '/' },
         { text: '项目概述', link: '/docs/overview/background' },
         { text: '业务需求', link: '/docs/requirements/index' },
+        { text: '场景故事', link: '/docs/scenarios/index' },
+        { text: '测试用例', link: '/docs/test-cases/index' },
+        { text: '数据与代码', link: '/docs/database-code/index' },
+        { text: '集成与测试', link: '/docs/integration/index' },
         { text: '技术规格', link: '/docs/specifications/interfaces' },
         { text: '附录', link: '/docs/appendix/reports', activeMatch: '^/docs/appendix/' },
-        { text: '关于', link: '/prompts/readme', activeMatch: '^/prompts/' }
+        { text: '关于', link: '/docs/about/readme', activeMatch: '^/docs/about/' }
       ],
 
       sidebar: {
@@ -98,15 +113,74 @@ export default withMermaid(
             ]
           }
         ],
-        '/prompts/': [
+        '/docs/about/': [
           {
             text: '关于',
             items: [
-              { text: '项目说明', link: '/prompts/readme' },
-              { text: '第1步 准备工作', link: '/prompts/step1-get-ready' },
-              { text: '第2步 项目概述', link: '/prompts/step2-overview' },
-              { text: '第3步 业务需求', link: '/prompts/step3-requirements' },
+              { text: '写在前面的话', link: '/docs/about/readme' },
+              { text: '第1步 准备工作', link: '/docs/about/step1-get-ready' },
+              { text: '第2步 项目概述', link: '/docs/about/step2-overview' },
+              { text: '第3步 业务需求', link: '/docs/about/step3-requirements' },
+              { text: '第4步 场景与故事', link: '/docs/about/step4-scenarios' },
+              { text: '第5步 测试用例与数据', link: '/docs/about/step5-test-cases' },
+              { text: '第6步 数据库设计与代码', link: '/docs/about/step6-database-code' },
+              { text: '第7步 集成与测试', link: '/docs/about/step7-integration' },
               { text: 'charts demo', link: '/docs/charts/demo' }
+            ]
+          }
+        ],
+        '/docs/scenarios/': [
+          {
+            text: '场景故事',
+            items: [
+              { text: '概述', link: '/docs/scenarios/index' },
+              { text: '用户故事地图', link: '/docs/scenarios/story-map' },
+              { text: '需求转用户故事', link: '/docs/scenarios/requirements-to-stories' },
+              { text: '用户故事转场景', link: '/docs/scenarios/stories-to-scenarios' },
+              { text: '场景展示', link: '/docs/scenarios/presentation' }
+            ]
+          },
+          {
+            text: '功能需求',
+            items: [
+              { text: '1. 工作平台', link: '/docs/scenarios/requirements/1-work-platform' },
+              { text: '2. 物联网数据管理', link: '/docs/scenarios/requirements/2-iot-management' },
+              { text: '3. 病虫预警分析', link: '/docs/scenarios/requirements/3-pest-warning' },
+              { text: '4. 国家系统对接', link: '/docs/scenarios/requirements/4-national-system' },
+              { text: '5. 防治监管', link: '/docs/scenarios/requirements/5-prevention-supervision' },
+              { text: '6. 业务应用', link: '/docs/scenarios/requirements/6-business-application' },
+              { text: '7. 病虫害知识库', link: '/docs/scenarios/requirements/7-pest-knowledge-base' },
+              { text: '8. 指挥调度一张图', link: '/docs/scenarios/requirements/8-command-map' }
+            ]
+          }
+        ],
+        '/docs/test-cases/': [
+          {
+            text: '测试概述',
+            items: [
+              { text: '测试说明', link: '/docs/test-cases/index' }
+            ]
+          },
+          {
+            text: '功能模块测试',
+            items: [
+              { text: '1. 工作平台', link: '/docs/test-cases/1-work-platform' },
+              { text: '2. 物联网数据管理', link: '/docs/test-cases/2-iot-management' },
+              { text: '3. 病虫预警分析', link: '/docs/test-cases/3-pest-warning' },
+              { text: '4. 国家系统对接', link: '/docs/test-cases/4-national-system' },
+              { text: '5. 防治监管', link: '/docs/test-cases/5-prevention-control' },
+              { text: '6. 业务应用', link: '/docs/test-cases/6-business-application' },
+              { text: '7. 病虫害知识库', link: '/docs/test-cases/7-pest-knowledge' },
+              { text: '8. 指挥调度一张图', link: '/docs/test-cases/8-command-map' }
+            ]
+          },
+          {
+            text: '测试类型',
+            items: [
+              { text: '功能测试', link: '/docs/test-cases/functional-test' },
+              { text: '性能测试', link: '/docs/test-cases/performance-test' },
+              { text: '接口测试', link: '/docs/test-cases/interface-test' },
+              { text: '安全测试', link: '/docs/test-cases/security-test' }
             ]
           }
         ],
