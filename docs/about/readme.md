@@ -11,21 +11,9 @@ description: 项目开发方法论说明
 
 ### 实现目标
 <script setup>
-import { use } from 'echarts/core';
-import { CanvasRenderer } from 'echarts/renderers';
-import { PieChart } from 'echarts/charts';
-import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components';
-import VChart from 'vue-echarts';
+import { ref } from 'vue'
 
-use([
-  CanvasRenderer,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent
-]);
-
-const option = {
+const option = ref({
   tooltip: {
     trigger: 'item',
     formatter: '{b}: {c}%'
@@ -117,10 +105,12 @@ const option = {
       }
     }
   ]
-};
+})
 </script>
 
-<VChart class="chart" :option="option" style="height: 400px" />
+<ClientOnly>
+  <ECharts :option="option" />
+</ClientOnly>
 
 
 | 项目 | 传统开发模式 | AI辅助开发模式 |

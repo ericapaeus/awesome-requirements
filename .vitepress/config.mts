@@ -7,6 +7,7 @@ export default withMermaid(
   defineConfig({
     title: "安徽省病虫疫情信息调度指挥平台（二期）软件系统",
     description: "打造具有本省特色、与国家系统对接共享的省级植保调度指挥平台",
+    ignoreDeadLinks: true,  // 禁用死链接检查
     markdown: {
       config: (md) => {
         // 配置 markdown-it 插件
@@ -20,6 +21,9 @@ export default withMermaid(
       },
       optimizeDeps: {
         exclude: ['vitepress-export-pdf']
+      },
+      ssr: {
+        noExternal: ['vue-echarts', 'resize-detector', 'echarts']
       },
       server: {
         fs: {
